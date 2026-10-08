@@ -1,4 +1,4 @@
-# A Deployer's Frontier Reading Plan (About One Month)
+# Jetson’s Frontier Robotics Reading List (for Deployer)
 
 **English** | [简体中文](README.zh-CN.md)
 
