@@ -2,13 +2,15 @@
 
 [English](README.md) | **简体中文**
 
-> 2026-10-08 发布快照。中文原稿在作者的私人 vault 中维护；本仓库提供可分享的中英文版本。阅读勾选和日期保留原计划状态。
+> 2026-10-11 发布快照。中文原稿在作者的私人 vault 中维护；本仓库提供可分享的中英文版本。阅读勾选和日期保留原计划状态。
 
 Sep 24, 2026 · @Jetson Wu
 
 2026-10-02 更新：补入 Sunday、Skild、Generalist、Dyna、Rhoda、Genesis 的前沿模型材料，以及 Dyna 的部署复盘。阶段标题日期保留原排期作参考；新增主线阅读约 12.5 小时，完成日期按文末调整。
 
 2026-10-08 增补：阶段 4 加入 What Can RL Bring to VLA Generalization?（细读 2 小时）。本次条目与阅读建议由 Codex 生成（author: ai；owner_endorsement: unconfirmed），来源为[论文 v2](https://arxiv.org/html/2505.19789v2)及[作者项目页](https://rlvla.github.io/)，证据核查截至 2026-10-08。下方完成日期仍是粗估，本次新增约 0.4–0.5 个阅读日。
+
+2026-10-11 增补：阶段 4 加入 Learning While Deploying（LWD，细读 3 小时）。条目与阅读建议由 Codex 生成（author: ai；owner_endorsement: unconfirmed），依据[论文 v4](https://arxiv.org/html/2605.00416v4)，证据核查截至 2026-10-11。本次新增约 0.5–0.75 个阅读日；文末日期表保留 10/2 的粗估基线，10/8 与本次增补合计再顺延约 0.8–1.25 天。
 
 ## 总览
 
@@ -182,7 +184,7 @@ flowchart LR
 
 ## 阶段 4（10/9-10/11）：强化学习
 
-这一阶段回答：RL 在什么条件下值得上，比模仿学习多赚什么、多花什么？约 19.5 小时，按每天 5 小时约 4 天，比其他阶段略重。你偏爱 RL，所以这一阶段刻意把它的成本和它的收益放在一起读。
+这一阶段回答：RL 在什么条件下值得上，比模仿学习多赚什么、多花什么？约 22.5 小时，按每天 5 小时约 4.5 天，比其他阶段略重。你偏爱 RL，所以这一阶段刻意把它的成本和它的收益放在一起读。
 
 | 完成 | 档位 | 文章 | 时长 | 读的时候盯住 |
 | --- | --- | --- | --- | --- |
@@ -192,6 +194,7 @@ flowchart LR
 | ☐ | 精读 | [RL Token: Bootstrapping Online RL with Vision-Language-Action Models](https://arxiv.org/abs/2604.23073)（Charles Xu、Jost Tobias Springenberg 等，含 Sergey Levine，2026.4） | 4 小时 | RL token 如何保留 VLA 的任务知识，让小型 actor-critic 高效做在线 RL；策略如何约束在 VLA 附近，为什么不在线重训整个 VLA；螺丝安装、扎带紧固、充电器与网线插入的成功率和节拍分别提升多少，最难子阶段的提速能否代表完整任务；真机交互、reset、奖励与人工投入各花多少，对照 HIL-SERL 和 EXPO-FT 的成本结构 |
 | ☐ | 细读 | [EXPO-FT](https://arxiv.org/abs/2605.25477)（Dong, Hung, Gao, Sadigh, Finn，CoRL 2026） | 2 小时 | 大模型出候选、小 edit policy 修正、Q 值挑最优、再把选中的动作吸收回大模型，这套结构的稳定性从哪来；十几分钟在线交互之外，训练算力要多少；和 RLT 逐项对照 |
 | ☐ | 细读 | [π\*0.6 / RECAP](https://arxiv.org/abs/2511.14759)（PI，2025） | 3 小时 | 大规模 RL 用在真实任务上，成功率和吞吐提升多少；需要多少部署数据和人工纠正 |
+| ☐ | 细读 | [Learning While Deploying: Fleet-Scale Reinforcement Learning for Generalist Robot Policies](https://arxiv.org/abs/2605.00416)（LWD，Yi Wang 等，2026；核查 v4，2026-09-16） | 3 小时 | 对照 HIL-SERL、RL Token 和 RECAP，读 DIVL + QAM 如何把离线数据、自主执行与人工干预用于共享 VLA 的持续后训练；重点看第 IV–V 节及附录 D。作者在 16 台双臂机器人、8 项任务上报告平均分 0.95，但补货用二元成功率，长任务用含重试或瑕疵半分的分步骤评分，不能等同完整任务 95% 自主成功率。4 小时墙钟时间对应约 60 机器人小时在线数据；另核算离线数据、reset、人工与算力成本。哪些现场经验能降低下一次部署成本，哪些仍绑定当前任务和硬件？ |
 | ☐ | 细读 | [When Should We Prefer Offline RL Over Behavioral Cloning?](https://arxiv.org/abs/2204.05618)（Kumar 等，Levine，ICLR 2022） | 2 小时 | 什么数据和任务条件下 RL 才赢模仿学习；把你的几个场景代进去 |
 | ☐ | 选读 | [RL-100](https://arxiv.org/abs/2510.14830)（许华哲组） | 3 小时 | 你已读到一半；读完正好和 HIL-SERL、RLT 对照成本结构 |
 
@@ -266,7 +269,7 @@ flowchart LR
 
 ## 快慢怎么调
 
-原计划主线约 159 小时；2026-10-02 新增约 12.5 小时后，主线约 171.5 小时；2026-10-08 再增补本篇 2 小时，主线约 173.5 小时，含原有 3 个消化日，世界观专线约 9.5 小时另计。以下是在原预计完成日期上增加阅读量的粗估，不代表已完成进度；阶段标题日期是原排期参考，实际按阅读顺序顺延。
+原计划主线约 159 小时；2026-10-02 新增约 12.5 小时后，主线约 171.5 小时；2026-10-08 增补 2 小时，2026-10-11 再增补 LWD 3 小时，主线约 176.5 小时，含原有 3 个消化日，世界观专线约 9.5 小时另计。以下是在原预计完成日期上增加阅读量的粗估，不代表已完成进度；阶段标题日期是原排期参考，实际按阅读顺序顺延。
 
 | 每天投入 | 大约读完 | 怎么调 |
 | --- | --- | --- |
